@@ -92,7 +92,7 @@ STOCK_API_KEY=xxxxxxxxxxxxxxxxxxxxx
 ```
 There are two ways to get an Alexxd\StockData\Stock instance:
 
-####Method parameter injection
+#### Method parameter injection
 
 ```
     .
@@ -107,7 +107,7 @@ There are two ways to get an Alexxd\StockData\Stock instance:
     .
 ```
 
-####Service name access
+#### Service name access
 
 ```
     .
