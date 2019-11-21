@@ -68,11 +68,12 @@ class StockTest extends TestCase
 
         $s = \Mockery::mock(Stock::class, ['mock-key'])->makePartial();
 
-        $s->allows()->getHttpClient()->andReturn($client);
+        $s->allows()->getHttpClient()->andReturnUsing(function ($client) use ($s) {
+            $this->assertSame(['success' => true], $s->getIntradayStock('X'));
+        });
 
-        $this->assertSame('{"success": true}', $s->getIntradayStock('X'));
 
-        $response = new Response(200, [],'timestamp,open,high,low,close,volume');
+        $response = new Response(200, [], 'timestamp,open,high,low,close,volume');
 
         $client = \Mockery::mock(Client::class);
 
@@ -83,9 +84,10 @@ class StockTest extends TestCase
 
         $s = \Mockery::mock(Stock::class, ['mock-key'])->makePartial();
 
-        $s->allows()->getHttpClient()->andReturn($client);
-
-        $this->assertSame('timestamp,open,high,low,close,volume', $s->getIntradayStock('X','5','csv'));
+        $s->allows()->getHttpClient()->andReturnUsing(function ($client) use ($s) {
+            $this->assertSame('timestamp,open,high,low,close,volume', $s->getIntradayStock('X', '5', 'csv'));
+        });
+        
     }
 
     public function testGetIntradayStockWithGuzzleRuntimeException()
