@@ -1,0 +1,30 @@
+{
+    "name": "alexxd\/stock-data",
+    "description": "This package provide realtime and historical global equity data in 4 different temporal resolutions:(1)daily,(2)weekly,(3)monthly,and(4)intraday.Daily,weekly,and monthly time series contain 20+ years of historical data.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex",
+            "email": "jordan35@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alexxd\\StockData\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4",
+        "mockery/mockery": "^1.2"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alexxd\\StockData\\ServiceProvider"
+            ]
+        }
+    }
+}
