@@ -13,7 +13,7 @@ class Stock
     protected $key;
     protected $guzzleOptions = [];
 
-    public function __construct(string $key)
+    public function __construct($key)
     {
         $this->key = $key;
     }
@@ -23,7 +23,7 @@ class Stock
         return new Client($this->guzzleOptions);
     }
 
-    public function setGuzzleOptions(array $options)
+    public function setGuzzleOptions($options)
     {
         $this->guzzleOptions = $options;
     }
