@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Alexxd\StockData\Tests;
-
 
 use Alexxd\StockData\Exceptions\HttpException;
 use Alexxd\StockData\Exceptions\InvalidArgumentException;
@@ -15,14 +13,13 @@ use Alexxd\StockData\Stock;
 
 class StockTest extends TestCase
 {
-
     public function testGetIntradayStockWithInvalidInterval()
     {
         $s = new Stock('mock-key');
 
         $this->expectException(InvalidArgumentException::class);
 
-        $this->expectExceptionMessage("Invalid interval: foo.(The following values are supported: 1, 5, 15, 30, 60)");
+        $this->expectExceptionMessage('Invalid interval: foo.(The following values are supported: 1, 5, 15, 30, 60)');
 
         $s->getIntradayStock('X', 'foo');
 
@@ -35,7 +32,7 @@ class StockTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
 
-        $this->expectExceptionMessage("Invalid response format: array.(The following values are supported: csv,json)");
+        $this->expectExceptionMessage('Invalid response format: array.(The following values are supported: csv,json)');
 
         $s->getIntradayStock('X', '5', 'array');
 
@@ -48,7 +45,7 @@ class StockTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
 
-        $this->expectExceptionMessage("Invalid output size: foo.(The following values are supported: compact,full)");
+        $this->expectExceptionMessage('Invalid output size: foo.(The following values are supported: compact,full)');
 
         $s->getIntradayStock('X', '5', 'json', 'foo');
 
@@ -72,7 +69,6 @@ class StockTest extends TestCase
             $this->assertSame(['success' => true], $s->getIntradayStock('X'));
         });
 
-
         $response = new Response(200, [], 'timestamp,open,high,low,close,volume');
 
         $client = \Mockery::mock(Client::class);
@@ -87,7 +83,6 @@ class StockTest extends TestCase
         $s->allows()->getHttpClient()->andReturnUsing(function ($client) use ($s) {
             $this->assertSame('timestamp,open,high,low,close,volume', $s->getIntradayStock('X', '5', 'csv'));
         });
-        
     }
 
     public function testGetIntradayStockWithGuzzleRuntimeException()

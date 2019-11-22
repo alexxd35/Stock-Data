@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Alexxd\StockData;
-
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
