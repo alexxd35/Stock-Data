@@ -4,7 +4,8 @@
 
 [![Build Status](https://travis-ci.org/alexxd35/Stock-Data.svg?branch=master)](https://travis-ci.org/alexxd35/Stock-Data)
 [![StyleCI](https://github.styleci.io/repos/223149204/shield?branch=master)](https://github.styleci.io/repos/223149204)
-
+[![Latest Stable Version](https://img.shields.io/packagist/v/alexxd/stock-data.svg)](https://packagist.org/packages/alexxd/stock-data)
+[![Total Downloads](https://img.shields.io/packagist/dt/alexxd/stock-data.svg)](https://packagist.org/packages/alexxd/stock-data)
 ## Installing
 
 ```shell
