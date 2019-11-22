@@ -2,6 +2,8 @@
 
 <p align="center"> This package provide realtime and historical global equity data in 4 different temporal resolutions:(1)daily,(2)weekly,(3)monthly,and(4)intraday.Daily,weekly,and monthly time series contain 20+ years of historical data.</p>
 
+[![Build Status](https://travis-ci.org/alexxd35/Stock-Data.svg?branch=master)](https://travis-ci.org/alexxd35/Stock-Data)
+
 
 ## Installing
 
