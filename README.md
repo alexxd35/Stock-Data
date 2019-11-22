@@ -24,7 +24,7 @@ $key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
 $stock = new Stock($key);
 ```
-## Get IntraDay stock data
+#### Get intraDay stock data
 ```
 $response = $stock->getIntradayStock('AAPL');
 ```
@@ -66,13 +66,29 @@ Example:
     }
 }
 ```
+#### Get daily stock data
+```
+$response = $stock->getDailyStock('AAPL');
+```
+#### Get weekly stock data
+```
+$response = $stock->getWeeklyStock('AMZN');
+```
+#### Get monthly stock data
+```
+$response = $stock->getMonthlyStock('TSLA');
+```
+
 ## Parameters
 ```
 getIntradayStock($symbol, $interval = '5', $format = 'json',$output_size='compact')
+getDailyStock($symbol, $format = 'json',$output_size='compact')
+getWeeklyStock($symbol, $format = 'json',$output_size='compact')
+getMonthlyStock($symbol, $format = 'json',$output_size='compact')
 ```
 **symbol** :The name of the equity of your choice. For example:AAPL
 
-**interval**:Time interval between two consecutive data points in the time series. The following values are supported: 1, 5, 15, 30, 60
+**interval**:(Only intraday required)Time interval between two consecutive data points in the time series. The following values are supported: 1, 5, 15, 30, 60
 
 **format**:By default, format=json. Strings **json** and **csv** are accepted with the following specifications: json returns the intraday time series in JSON format; csv returns the time series as a CSV (comma separated value) file.
 
